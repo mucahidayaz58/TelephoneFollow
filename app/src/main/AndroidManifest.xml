@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Gerekli İzinler -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="ACCESS_NOTIFICATION_POLICY" /> <!-- Konum ve Foreground Servisi için Gerekli İzinler -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission
+        android:name="android.permission.FOREGROUND_SERVICE_LOCATION"
+        tools:targetApi="34" />
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TelephoneFollowing"
+        tools:targetApi="31">
+        <activity
+            android:name=".SMSActivity"
+            android:exported="false"
+            android:label="@string/title_activity_smsactivity"
+            android:theme="@style/Theme.TelephoneFollowing" />
+        <!-- MainActivity tanımı -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver
+            android:name=".LockScreenReceiver"
+            android:exported="true">
+            <intent-filter>
+
+                <!-- Cihazın kilidi açıldığında tetiklenir -->
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <!-- Cihaz yeniden başlatıldığında tetiklenir (Uygulama açılmasa bile) -->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".CallReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+       <!-- SMS için BroadcastReceiver tanımı -->
+        <receiver
+            android:name=".SMSReceiver"
+            android:exported="true"
+            android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver> <!-- Foreground Service tanımı -->
+
+        <receiver android:name=".ActivityRecognitionReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.greyinc.telephonefollowing.ACTIVITY_RECOGNITION" />
+            </intent-filter>
+        </receiver>
+
+
+        <service
+            android:name=".MyAccessibilityService"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+        <service
+            android:name=".UnlockTrackingService"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+    </application>
+
+</manifest>

@@ -1,0 +1,405 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Header with Title and Spinner -->
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="16dp"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+               android:layout_width="wrap_content"
+               android:orientation="horizontal"
+               android:layout_height="wrap_content">
+               <EditText
+                   android:layout_width="100dp"
+                   android:layout_height="wrap_content"
+                   android:text="Start: 21/09/2024 02:00AM"
+
+                   />
+               <EditText
+                   android:layout_width="100dp"
+                   android:layout_height="wrap_content"
+                   android:text="End: 22/09/2024 03:00AM"
+
+                   />
+
+               <Button
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Get Data"
+                   />
+           </LinearLayout>
+        </LinearLayout>
+
+        <!-- GridLayout for Cards -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="2"
+            android:columnCount="2"
+            android:layout_below="@id/header"
+            android:layout_marginTop="8dp">
+
+            <!-- Touch Count Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_gravity="fill"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="8dp"
+                android:layout_columnWeight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/touchCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Screen Touches"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/touchValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="141"
+                        android:textSize="30sp"
+                        android:textStyle="bold"/>
+
+                    <!-- Driving and Other Info -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Driving: 85"
+                        android:textSize="16sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Other: 56"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start: 21/09/2024 02:00AM"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="End: 22/09/2024 03:00AM"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Swipe Count Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_gravity="fill"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="8dp"
+                android:layout_columnWeight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/swipeCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Swipes"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/swipeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="91"
+                        android:textSize="30sp"
+                        android:textStyle="bold"/>
+
+                    <!-- Driving and Other Info -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Driving: 16"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Other: 75"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start: 21/09/2024 02:00 AM"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="End: 22/09/2024 03:00 AM"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Call Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_gravity="fill"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="8dp"
+                android:layout_columnWeight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/callCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Call Statistics"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/callValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="83"
+                        android:textSize="30sp"
+                        android:textStyle="bold"/>
+
+                    <!-- Driving and Other Info -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Driving: 27"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Incoming: 12"
+                        android:textSize="14sp"
+                        android:layout_marginStart="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Answered: 2"
+                        android:textSize="14sp"
+                        android:layout_marginStart="32dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Unanswered: 10"
+                        android:textSize="14sp"
+                        android:layout_marginStart="32dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Outgoing: 15"
+                        android:textSize="14sp"
+                        android:layout_marginStart="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Other: 56"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Received: 23"
+                        android:textSize="14sp"
+                        android:layout_marginStart="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Answered: 5"
+                        android:textSize="14sp"
+                        android:layout_marginStart="32dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Unanswered: 10"
+                        android:textSize="14sp"
+                        android:layout_marginStart="32dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Outgoing: 15"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start: 21/09/2024 02:00AM"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="End: 22/09/2024 03:00AM"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Messaging Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/smsCardview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_gravity="fill"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="8dp"
+                android:layout_columnWeight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/messageCount2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Message Writing Statistics"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/messageValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="101"
+                        android:textSize="30sp"
+                        android:textStyle="bold"/>
+
+                    <!-- Driving and Other Info -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Driving: 73"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Other: 28"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start: 21/09/2024 02:00AM"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="End: 22/09/2024 03:00AM"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Click for details"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_gravity="fill"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="8dp"
+                android:layout_columnWeight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/messageCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Unlock Count"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/messageValue2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="21"
+                        android:textSize="30sp"
+                        android:textStyle="bold"/>
+
+                    <!-- Driving and Other Info -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Driving: 9"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Other: 12"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start: 21/09/2024 02:00AM"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="End: 22/09/2024 03:00AM"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+
+    </RelativeLayout>
+</ScrollView>

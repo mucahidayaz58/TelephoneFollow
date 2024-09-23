@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- Verileri İçeren CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Telefon Numarası Başlığı -->
+            <TextView
+                android:id="@+id/title_phone_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Phone Number"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"/>
+
+            <!-- Telefon Numarası -->
+            <TextView
+                android:id="@+id/phone_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="+39 331 123 4567"
+                android:gravity="center"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/title_phone_number"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"/>
+
+            <!-- Mesaj Sayısı Başlığı -->
+            <TextView
+                android:id="@+id/title_message_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Number of Messages Sent"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/phone_number"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="16dp"/>
+
+            <!-- Mesaj Sayısı -->
+            <TextView
+                android:id="@+id/message_count"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="25"
+                android:gravity="center"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/title_message_count"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
